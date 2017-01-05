@@ -21,7 +21,10 @@ router.route('/')
 .post(function(req, res, next){
 
     Leaders.create(req.body, function(err, leader){
-        if(err) next(err);
+        if(err) {
+            console.log(err);
+            next(err);
+        }
         
         console.log('Leader Created!');
         var id = leader._id;
