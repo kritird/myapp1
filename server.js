@@ -41,7 +41,9 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
   }
 }
 
-mongoose.connect(mongoURL);
+var tempUrl = "mongodb://userBMB:UU3FFsSBhNAwu3vV@mongodb/testingdb";
+
+mongoose.connect(tempUrl);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
