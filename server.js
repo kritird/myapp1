@@ -4,9 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs         = require('fs');
+var eps        = require('ejs');
+
+Object.assign=require('object-assign')
+
+app.engine('html', require('ejs').renderFile);
 
 // Initiate MongoDB before Routes
 var mongoose = require('mongoose');
+
+var app = express();
 
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
@@ -48,7 +56,6 @@ var dishRouter = require('./routes/dishRouter');
 var promoRouter = require('./routes/promoRouter');
 var leaderRouter = require('./routes/leaderRouter');
 
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
