@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs         = require('fs');
 var eps        = require('ejs');
+var app = express();
 
 Object.assign=require('object-assign')
 
@@ -13,8 +14,6 @@ app.engine('html', require('ejs').renderFile);
 
 // Initiate MongoDB before Routes
 var mongoose = require('mongoose');
-
-var app = express();
 
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
